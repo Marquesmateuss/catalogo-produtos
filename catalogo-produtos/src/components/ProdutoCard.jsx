@@ -1,19 +1,12 @@
-function ProdutoCard({ nome, preco, imagem, descricao }) {
+import React from 'react';
+
+export default function ProdutoCard({ nome, preco, imagem, descricao }) {
   return (
     <div className="produto-card">
-      <img src={imagem} alt={nome} />
-
-      <div className="produto-info">
-        <h3>{nome}</h3>
-
-        <p className="descricao">{descricao}</p>
-
-        <p className="preco">
-          R$ {Number(preco).toFixed(2).replace(".", ",")}
-        </p>
-      </div>
+      {imagem && <img src={imagem} alt={nome} />}
+      <h3>{nome}</h3>
+      <p className="preco">R$ {Number(preco).toFixed(2)}</p>
+      <p className="descricao">{descricao}</p>
     </div>
   );
 }
-
-export default ProdutoCard;
